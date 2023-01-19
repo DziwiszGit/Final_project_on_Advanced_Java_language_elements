@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "315773eb-184c-437e-a08c-4345477b9e55",
+		"name": "FinalProjectOnAdvJava",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Pawel\",\r\n    \"surname\":\"Dziwisz\",\r\n    \"account_balance\":300\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/account",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/change?id=99175f6b-6eb1-428b-8a6f-2aa167a2b05c",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/change?id=99175f6b-6eb1-428b-8a6f-2aa167a2b05c",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "99175f6b-6eb1-428b-8a6f-2aa167a2b05c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/logs?id=99175f6b-6eb1-428b-8a6f-2aa167a2b05c",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/logs?id=99175f6b-6eb1-428b-8a6f-2aa167a2b05c",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"logs"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "99175f6b-6eb1-428b-8a6f-2aa167a2b05c"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

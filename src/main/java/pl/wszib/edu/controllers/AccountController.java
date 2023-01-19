@@ -1,11 +1,14 @@
 package pl.wszib.edu.controllers;
 
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import pl.wszib.edu.DAO.AccountDAO;
 import pl.wszib.edu.model.Account;
 import pl.wszib.edu.services.AccountService;
+import pl.wszib.edu.services.MoneyService;
 
-import java.util.UUID;
 
 @RestController
 public class AccountController {
@@ -30,12 +33,19 @@ public class AccountController {
         return "Account deleted : " + account.getName() + " " + account.getSurname();
     }
     @RequestMapping(value = "/change", method = RequestMethod.POST)
-    public void changeBallance(@RequestParam(value = "id", required = false) String id){
-        System.out.println(id);
-        accountService.changeBallance(id);
+    public void changeBalance(@RequestParam(value = "id", required = false) String id){
+        accountService.changeBalance(id);
     }
     @RequestMapping(value = "/account", method = RequestMethod.GET)
     public void getAccounts(){
         accountService.getAccounts();
+    }
+    @RequestMapping(value = "/logs", method = RequestMethod.GET)
+    public void getLogsOfChangingMoneyBalance(@RequestParam(value = "id", required = false) String uuid){
+        int element = 0;
+        for(Double singleLog : accountService.getLogsOfChangingMoneyBalance(uuid)){
+            System.out.println(element + " - " + MoneyService.roundTo2DecimalPlace(singleLog));
+            element++;
+        }
     }
 }

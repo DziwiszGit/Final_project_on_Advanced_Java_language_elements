@@ -1,13 +1,14 @@
 package pl.wszib.edu.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Builder;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Builder
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,6 +16,8 @@ public class Account {
     private String name;
     private String surname;
     private double account_balance;
+    @ElementCollection
+    private List<Double> logs;
 
     public Account() {
     }
@@ -27,6 +30,7 @@ public class Account {
         this.name = name;
         this.surname = surname;
         this.account_balance = account_balance;
+        this.logs = new ArrayList<>();
     }
 
     public UUID getId() {
@@ -43,5 +47,13 @@ public class Account {
 
     public double getAccount_balance() {
         return account_balance;
+    }
+
+    public List<Double> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(List<Double> logs) {
+        this.logs.addAll(logs);
     }
 }
